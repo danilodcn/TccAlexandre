@@ -16,6 +16,7 @@ class TccApp(App):
         manager = ScreenManager()
         manager.add_widget(HomeScreen(name="home"))
         return manager
+        
 
 if __name__ == "__main__":
     TccApp().run()
