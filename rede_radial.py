@@ -175,8 +175,9 @@ def loop_freq( t0, tf, t_start, t_end, h ):
 barras = np.array(pd.read_excel("barras.xlsx", index_col=0))
 linhas = np.array(pd.read_excel("linhas.xlsx", index_col=0))
 
+tensao = 12660
 
-V_SE = fasor(12660,0)
+V_SE = fasor(tensao,0)
 Vbus_old = V_SE * np.ones(len(barras))
 TOL = 0.001 * 12660
 max_iter = 50

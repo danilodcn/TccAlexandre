@@ -6,12 +6,45 @@
         Label:
             text: "Soma de potencias".upper()
             font_size: "30sp"
+            size_hint_y: None
 
         BoxLayout:
             orientation: "horizontal"
             Image:
                 source: "curso.jpeg"
-        
+        BoxLayout:
+            orientation: "horizontal"
+            padding: [f"{i}sp" for i in [50, 20, 50, 30]]
+            Button:
+                id: dados_da_rede
+                text: "Dados da Rede (Ativo e Reativo)"
+                size_hint_y: None
+                font_size: "20sp"
+                on_release: app._clica_botao_home()
 
+<CalculoScreenNaoUsado>:
+    BoxLayout:
+        orientation: "vertical"
+
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "A0"
+            TextInput:
+                text: "1"
+            
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "A0"
+            TextInput:
+                text: "1"
+
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "A0"
+            TextInput:
+                text: "1"
 
 
