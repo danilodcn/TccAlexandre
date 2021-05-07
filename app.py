@@ -20,11 +20,39 @@ class CalculoScreen(Screen):
         super(CalculoScreen, self).__init__(*args, **kw)
         self._font_size = sp(20)
         self.add_widget(self.criar_parte_ativa())
+        self.add_widget(self.criar_parte_reativa())
+
+
 
     def criar_parte_ativa(self):
         box = BoxLayout()
         box.orientation = "vertical"
         label = Label(text="Parte Ativa")
+        label.font_size = "20sp"
+        box.add_widget(label)
+
+        nomes_labels = [
+                "A0 (sjksjakjsksj)",
+                "A1 (jsksjksajk)",
+                "A2 (ssss)"]
+        nomes_campos = "a0 a1 a2".split()
+
+        for nome, campo in zip(nomes_labels, nomes_campos):
+            b = BoxLayout(orientation="horizontal", spacing="10sp")
+            label = Label(text=nome, font_size=self._font_size)
+            input = TextInput(text=campo, font_size=self._font_size)
+
+            b.add_widget(label)
+            b.add_widget(input)
+            box.add_widget(b)
+
+        return box
+
+
+    def criar_parte_reativa(self):
+        box = BoxLayout()
+        box.orientation = "vertical"
+        label = Label(text="Parte Reativa")
         label.font_size = "20sp"
         box.add_widget(label)
 
@@ -44,7 +72,8 @@ class CalculoScreen(Screen):
             box.add_widget(b)
 
         return box
-    
+
+
 
 class TccApp(App):
     title = "Soma de Potencias"
