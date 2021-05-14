@@ -11,21 +11,45 @@
         BoxLayout:
             orientation: "horizontal"
             Image:
-                source: "curso.jpeg"
+                source: "./imagens/curso.jpeg"
         BoxLayout:
-            orientation: "horizontal"
-            padding: [f"{i}sp" for i in [50, 20, 50, 30]]
+            id: botoes_home
+            orientation: "vertical"
+            padding: [f"{i}sp" for i in [100, 30, 100, 20]]
+            spacing: "10sp"
             Button:
                 id: dados_da_rede
                 text: "Dados da Rede (Ativo e Reativo)"
                 size_hint_y: None
                 font_size: "20sp"
-                on_release: app._clica_botao_home()
+                on_release: 
+                    app.vai_para_tela("calculo")()
 
-<Button>:
+            Button:
+                id: botao_sair
+                text: "Sair"
+                size_hint_y: None
+                font_size: "20sp"
+                on_release: app.stop()  #print([[x, i.text] for x, i in app.root.ids.items()])
+
+<Button@Button>:
     background_down: "imagens/button/button_down.png"
     background_normal: "imagens/button/button_normal.png"
+    font_name: "Roboto"
     border: [2, 2, 2, 2]
+
+
+<Label@Label>:
+    font_name: "Roboto"
+    color: [0.9882352941176471, 0.6901960784313725, 0.00392156862745098, 1]
+    bold: True
+    markup: True
+
+<TextInput@TextInput>:
+    foregroud_color: [0.9882352941176471, 0.6901960784313725, 0.00392156862745098, 1]
+    multiline: False
+    font_name: "Roboto"
+    bold: True
 
 
 <CalculoScreenNaoUsado>:
@@ -52,5 +76,3 @@
                 text: "A0"
             TextInput:
                 text: "1"
-
-

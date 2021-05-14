@@ -239,11 +239,11 @@ print('')
 #for i in range(0,len(linhas)):
 #    print( linhas[i,1], linhas[i,2],           Sbr[i].imag/1000 )
 
-now = datetime.datetime.now().strftime(r"%d-%b-%y_%H:%M:%S")
-if not os.path.isdir("./imagens"):
-    os.mkdir("./imagens/")
-pathname = f"./imagens/{now}/"
-os.mkdir(pathname)
+
+pathname = f"./.salvos/saida/"
+
+if not os.path.isdir(pathname):
+    os.mkdir(pathname)
 
 plt.figure()
 #plt.subplot(211)
