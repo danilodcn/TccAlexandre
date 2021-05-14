@@ -4,7 +4,6 @@ import pandas as pd
 
 inicio = time.time()
 
-
 def fasor(R, theta):
 
     Re = R*math.cos(theta*math.pi/180)
