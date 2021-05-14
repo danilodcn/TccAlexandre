@@ -252,6 +252,7 @@ if not os.path.isdir(pathname):
 
 plt.figure()
 #plt.subplot(211)
+plt.title("Frequência [Hz]")
 plt.plot(t, f, 'b-')
 plt.xlabel('t[s]')
 plt.ylabel('frequência [Hz]')
@@ -264,6 +265,7 @@ plt.plot(t, abs(Vbus_t[31,:])/12660, 'r:')
 plt.xlabel('t[s]')
 plt.ylabel('V [pu]')
 plt.grid(True)
+plt.title("V [pu]")
 plt.savefig(f"{pathname}Vbus_t.png")
 
 
@@ -280,6 +282,7 @@ plt.plot(t, (Sbr_t[0,:]).real/1000, 'g--')
 plt.xlabel('t[s]')
 plt.ylabel('P [kW]')
 plt.grid(True)
+plt.title("Potência [kW]")
 plt.ylim([3000, 3500])
 plt.savefig(f"{pathname}Sbr_t.png")
 
