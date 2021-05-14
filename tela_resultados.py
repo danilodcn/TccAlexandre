@@ -29,6 +29,16 @@ class TelaResultados(Screen):
         super().__init__(**kw)
         self.size = Window.size
         self.fonte = sp(18)
+        print(self.ids)
 
+    def carrega_imagens(self):
+        frequencia = self.ids.frequencia
+        frequencia.source = "./.salvos/saida/f.png"
+
+        v = self.ids.v
+        v.source = "./.salvos/saida/Vbus_t.png"
+
+        p = self.ids.p
+        p.source = "./.salvos/saida/Sbr_t.png"
         
     

@@ -39,7 +39,7 @@ class TelaCalulos(Screen):
             ]
         constantes = [
             ["Máximo de interações", "Fator de sensibilidade (kp)"],
-            ["max_inter", "kp"],
+            ["max_iter", "kp"],
             ["50", "0.9"]
         ]
         dicionario = {

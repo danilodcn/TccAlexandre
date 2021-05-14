@@ -51,28 +51,31 @@
     font_name: "Roboto"
     bold: True
 
+<TelaResultados>:
+    name: "ola"
 
-<CalculoScreenNaoUsado>:
-    BoxLayout:
-        orientation: "vertical"
+    TabbedPanel:
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        do_default_tab: False
 
-        BoxLayout:
-            orientation: "horizontal"
-            Label:
-                text: "A0"
-            TextInput:
-                text: "1"
+        TabbedPanelItem:
+            text: 'Frequência'
+            AsyncImage:
+                id: frequencia
+                source: "./.salvos/saida/f.png"
+        TabbedPanelItem:
+            text: 'V [pu]'
+            Image:
+                id: v
+        TabbedPanelItem:
+            text: "P [kW]"
+            Image: 
+                id: p
+
+        TabbedPanelItem:
+            text: "Home"
+            id: home
+
+        
+ 
             
-        BoxLayout:
-            orientation: "horizontal"
-            Label:
-                text: "A0"
-            TextInput:
-                text: "1"
-
-        BoxLayout:
-            orientation: "horizontal"
-            Label:
-                text: "A0"
-            TextInput:
-                text: "1"

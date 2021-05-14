@@ -1,6 +1,6 @@
 import numpy as np, math, time, os, datetime, matplotlib.pyplot as plt
 import pandas as pd
-
+import json
 
 inicio = time.time()
 
@@ -176,18 +176,23 @@ linhas = np.array(pd.read_excel("linhas.xlsx", index_col=0))
 
 tensao = 12660
 
+
+
 V_SE = fasor(tensao,0)
 Vbus_old = V_SE * np.ones(len(barras))
 TOL = 0.001 * 12660
-max_iter = 50
-a0 = 0 
-a1 = 0.22
-a2 = 0.78
-b0 = 1
-b1 = 0
-b2 = 0
+
+with open("./.salvos/entrada.json") as file:
+    dados = json.load(file)
+max_iter = dados["max_iter"]
+a0 = dados["a0"]
+a1 = dados["a1"]
+a2 = dados["a2"]
+b0 = dados["b0"]
+b1 = dados["b1"]
+b2 = dados["b2"]
 f_at = 58
-kp = 0.9
+kp = dados["kp"]
 t0= 0
 
 tf = 20

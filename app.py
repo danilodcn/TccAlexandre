@@ -231,7 +231,13 @@ class TccApp(App):
 
         calculo.ids["bnt_voltar"].bind(on_release=self.vai_para_tela("home"))
         calculo.ids["bnt_calcular"].bind(on_release=self.botao_calcular)
-        self._calculando = False
+
+        resultado = TelaResultados(name="resultado")
+        self._carrega_imagens = resultado.carrega_imagens
+        self.root.add_widget(resultado)
+
+        resultado.ids["home"].bind(on_release=self.vai_para_tela("home"))
+        
         self.process = Process()
 
     def vai_para_tela(self, nome):
@@ -250,16 +256,17 @@ class TccApp(App):
             self.process = Process(target=self._calculo, args=())
             self.process.start()
             Clock.schedule_interval(self.verifica_calculo_finalizado, .5)
+            self._verifica = True
 
     def verifica_calculo_finalizado(self, *args):
-        if not self.process.is_alive():
+        if not self.process.is_alive() and self.root.current == "calculo" and self._verifica:
             print("Calculo Realizado com sucesso ...", args)
-            resultado = TelaResultados(name="resultado")
-            self.root.add_widget(resultado)
             self.root.current = "resultado"
+            self._carrega_imagens()
+            self._verifica = False
             return 
 
-        else:
+        elif self.root.current == "calculo":
             print("Ainda nao ...")
 
     def _calculo(self, *args):
